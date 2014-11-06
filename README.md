@@ -7,13 +7,14 @@ Deploy this servlet on your tomcat to call a local script when git gets a push.
 
 2. Create a script /opt/webhook/webhook.sh, with content similar to:
 
----
+```
 #!/bin/bash
 
 echo 'This is a test' >> /tmp/webhook.log
 cd /tmp
+rm -rf webhookservlet
 git clone https://github.com/mobilars/webhookservlet.git
----
+```
 
 3. Create a webhook on git, pointing to your URL (configure for push events only)
 
